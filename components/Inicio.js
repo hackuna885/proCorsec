@@ -3,82 +3,84 @@ app.component("web-home", {
         <!-- Inicia Código -->
         <header>
           <div class="centrado-h-v" id="vantaHalo">
-            <section class="vh-lg-100 d-flex align-items-center">
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-12 d-flex align-items-center justify-content-center">
-                    <div class="shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500 text-white"
-                      style="background-color: rgba(0, 0, 0, .5);">
-                      <div class="text-center">
-                        <img src="assets/img/logoCorsecTech.png" class="img-fluid my-3" alt="logo" style="width: 150px;">
-                      </div>
-                      <div class="text-center text-md-center mb-4 mt-md-0">
-                        <h1 class="mb-0 h3">Inicio de Sesión</h1>
-                      </div>
+            <div class="row">
+              <div class="col-md-8 p-5 mx-auto">
         
-                      <form class="mt-4">
-                        <!-- Form -->
-                        <div class="form-group mb-4">
-                          <label for="email">Correo</label>
-                          <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1">
-                              <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                              </svg>
-                            </span>
-                            <input type="email" class="form-control" placeholder="ejemplo@correo.com" id="email" autofocus
-                              required>
-                          </div>
-                        </div>
-                        <!-- End of Form -->
-                        <div class="form-group">
-                          <!-- Form -->
-                          <div class="form-group mb-4">
-                            <label for="password">Contraseña</label>
-                            <div class="input-group">
-                              <span class="input-group-text" id="basic-addon2">
-                                <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
-                                  xmlns="http://www.w3.org/2000/svg">
-                                  <path fill-rule="evenodd"
-                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                    clip-rule="evenodd"></path>
-                                </svg>
-                              </span>
-                              <input type="password" placeholder="Contraseña" class="form-control" id="password" required>
-                            </div>
-                          </div>
-                          <!-- End of Form -->
-                          <!-- Form -->
-                          <div class="form-group mb-4">
-                            <label for="confirm_password">Confirmar contraseña</label>
-                            <div class="input-group">
-                              <span class="input-group-text" id="basic-addon2">
-                                <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
-                                  xmlns="http://www.w3.org/2000/svg">
-                                  <path fill-rule="evenodd"
-                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                    clip-rule="evenodd"></path>
-                                </svg>
-                              </span>
-                              <input type="password" placeholder="Confirmar contraseña" class="form-control"
-                                id="confirm_password" required>
-                            </div>
-                          </div>
-                          <!-- End of Form -->
-                        </div>
-                        <br>
-                        <div class="d-grid">
-                          <button type="submit" class="btn btn-gray-800">Iniciar Sesión</button>
-                        </div>
-                      </form>
-        
+                <div class="shadow border-0 rounded border-light p-4 p-lg-5 text-white"
+                  style="background-color: rgba(0, 0, 0, .5); width: 100%;">
+                  <div class="row">
+                    <div class="col-8 mx-auto">
+                      <img src="assets/img/logoCorsecTech.png" class="img-fluid my-3" alt="logo">
                     </div>
                   </div>
+                  <div class="text-center text-md-center mb-4 mt-md-0">
+                    <h1 class="mb-0 h3">Inicio de Sesión</h1>
+                  </div>
+        
+                  <form class="mt-4" @submit.prevent="revDatos">
+                    <div class="form-group mb-4">
+                      <label for="email">Correo</label>
+                      <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">
+                          <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                          </svg>
+                        </span>
+                        <input type="email" class="form-control" placeholder="ejemplo@correo.com" id="email" autofocus
+                          v-model="nCorreo" required>
+                      </div>
+                    </div>
+                    <div class="form-group" v-html="datos"></div>
+                    <div class="form-group">
+        
+                      <div class="form-group mb-4">
+                        <label for="password">Contraseña</label>
+                        <div class="input-group">
+                          <span class="input-group-text" id="basic-addon2">
+                            <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <input type="password" placeholder="Contraseña" class="form-control" id="password" v-model="passUsr"
+                            required>
+                        </div>
+                      </div>
+        
+                      <div class="form-group mb-4">
+                        <label for="confirm_password">Confirmar contraseña</label>
+                        <div class="input-group">
+                          <span class="input-group-text" id="basic-addon2">
+                            <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <input type="password" placeholder="Confirmar contraseña" class="form-control" id="confirm_password"
+                            v-model="passUsrDos" :disabled="estadoPass" required>
+                        </div>
+                      </div>
+                      <div :class="notificaEstadoPass" role="alert">
+                        {{validaContrasena}}
+                      </div>
+        
+                    </div>
+                    <br>
+                    <div class="d-grid">
+                      <button type="submit" class="btn btn-gray-800" :disabled="!formularioValido">Iniciar Sesión</button>
+                    </div>
+                  </form>
+        
                 </div>
+        
               </div>
-            </section>
+            </div>
           </div>
         </header>
         <!-- Inicia Código -->
@@ -88,12 +90,114 @@ app.component("web-home", {
   data() {
     return {
       datos: "",
-      vantaEffect: null // Añadimos una propiedad para almacenar la referencia al efecto
+      nCorreo: "",
+      passUsr: "",
+      passUsrDos: "",
+      msgAlert: "",
+      estadoPass: true,
+      notificaEstadoPass: "",
+      validaBtn: false,
+      estadoBtn: false,
+      redirectUrl: null,
+      vantaEffect: null, // Añadimos una propiedad para almacenar la referencia al efecto
     };
   },
-  computed: { },
-  methods: { },
-  created() { },
+  computed: {
+    validaContrasena() {
+      this.notificaEstadoPass = "small alert alert-light text-muted";
+      this.validaBtn = false;
+
+      if (this.passUsr.length < 6) {
+        this.estadoPass = true;
+        return "La contraseña debe tener al menos seis (6) caracteres.";
+      }
+
+      this.estadoPass = false;
+
+      if (this.passUsrDos.length < 6) {
+        return "La segunda contraseña también debe tener al menos seis (6) caracteres.";
+      }
+
+      if (this.passUsr !== this.passUsrDos) {
+        this.notificaEstadoPass = "small alert alert-danger";
+        return "¡Error! Las contraseñas no coinciden.";
+      }
+
+      this.notificaEstadoPass = "small alert alert-success";
+      this.validaBtn = true;
+      return "Contraseña válida.";
+    },
+    // valida boton
+    formularioValido() {
+      return this.nCorreo && this.passUsr && this.passUsrDos && this.validaBtn;
+    },
+
+   },
+  methods: {
+    revDatos() {
+      axios
+        .post("../proveedores-corsec/verifica/verifica.app", {
+          opcion: 1,
+          nCorreo: this.nCorreo,
+          passUsr: this.passUsr,
+        })
+        .then((response) => {
+          if (response.data === "correcto") {
+            // Guardar estado de autenticación
+            localStorage.setItem("isAuthenticated", "true");
+
+            Swal.fire({
+              icon: "success",
+              title: "¡Bienvenido!",
+              showConfirmButton: false,
+              timer: 2000,
+              willClose: () => {
+                // Obtener la URL de redirección si existe
+                const redirectUrl = new URLSearchParams(
+                  window.location.search
+                ).get("redirect");
+                // Redireccionar a la ruta original o a web-dashBoard
+                if (redirectUrl) {
+                  // no pasa
+                  this.$router.push(redirectUrl);
+                } else {
+                  // manda al home
+                  this.$router.push('/web-dashBoard');
+                }
+              },
+            });
+          } else {
+            this.datos = response.data;
+            // console.log(response.data)
+          }
+        })
+        .catch((error) => {
+          console.error("Error de autenticación:", error);
+          Swal.fire({
+            icon: "error",
+            title: "Error de inicio de sesión",
+            text: "No se pudo iniciar sesión. Intente nuevamente.",
+          });
+        });
+    },
+
+    // ####
+    checkAuth() {
+      return localStorage.getItem("isAuthenticated") === "true";
+    },
+    // ####
+   },
+  created() {
+    // Captura el parámetro de redirección de la URL si existe
+    const urlParams = new URLSearchParams(window.location.search);
+    this.redirectUrl = urlParams.get("redirect");
+
+    // Si el usuario ya está autenticado, redirigir inmediatamente
+    if (this.checkAuth()) {
+      const redirectTo = this.redirectUrl || "/web-dashBoard";
+      this.$router.push(redirectTo);
+    }
+  },
   mounted() { 
     // Inicializar el efecto VANTA.HALO cuando el componente esté montado
     this.vantaEffect = VANTA.HALO({
@@ -117,6 +221,332 @@ app.component("web-home", {
 app.component("web-dashBoard", {
   template: /*html*/ `
         <!-- Inicia Código -->
+        <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
+          <a class="navbar-brand me-lg-5" href="#">
+            <img class="navbar-brand-dark" src="assets/img/brand/light.svg" alt="Volt logo" /> <img
+              class="navbar-brand-light" src="assets/img/brand/dark.svg" alt="Volt logo" />
+          </a>
+          <div class="d-flex align-items-center">
+            <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </nav>
+
+        <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+          <div class="sidebar-inner px-4 pt-3">
+            <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
+              <div class="d-flex align-items-center">
+                <div class="avatar-lg me-4">
+                  <img src="assets/img/team/teamCorsec.jpg" class="card-img-top rounded-circle border-white"
+                    alt="Bonnie Green">
+                </div>
+                <div class="d-block">
+                  <h2 class="h5 mb-3">Hola, Administrador!</h2>
+                  <router-link to="/" @click="logout" class="btn btn-secondary btn-sm d-inline-flex align-items-center">                
+                  <span class="sidebar-icon d-inline-flex align-items-center justify-content-center">
+                    <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                  </span>
+                  Salir de sesión
+                </router-link>
+                </div>
+              </div>
+              <div class="collapse-close d-md-none">
+                <a href="#sidebarMenu" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                  aria-expanded="true" aria-label="Toggle navigation">
+                  <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <ul class="nav flex-column pt-3 pt-md-0">
+              <li class="nav-item">
+                <a href="#" class="nav-link d-flex align-items-center">
+                  <span class="sidebar-icon">
+                    <img src="assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
+                  </span>
+                  <span class="mt-1 ms-1 sidebar-text">Proveedores</span>
+                </a>
+              </li>
+              <li class="nav-item  active ">
+                <a href="#" class="nav-link">
+                  <span class="sidebar-icon">
+                    <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                      <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                    </svg>
+                  </span>
+                  <span class="sidebar-text">Tablero</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" target="_blank"
+                  class="nav-link d-flex justify-content-between">
+                  <span>
+                    <span class="sidebar-icon">
+                      <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                        </path>
+                      </svg>
+                    </span>
+                    <span class="sidebar-text">Menú</span>
+                  </span>
+                  <span>
+                    <span class="badge badge-sm bg-secondary ms-1 text-gray-800">Admin</span>
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a href="#" class="nav-link">
+                  <span class="sidebar-icon">
+                    <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
+                      <path fill-rule="evenodd"
+                        d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <span class="sidebar-text">Menú</span>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a href="#" class="nav-link">
+                  <span class="sidebar-icon">
+                    <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <span class="sidebar-text">Menú</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://demo.themesberg.com/volt-pro/pages/calendar.html" target="_blank"
+                  class="nav-link d-flex justify-content-between">
+                  <span>
+                    <span class="sidebar-icon">
+                      <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <span class="sidebar-text">Menú</span>
+                  </span>
+                  <span>
+                    <span class="badge badge-sm bg-secondary ms-1 text-gray-800">Admin</span>
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" target="_blank"
+                  class="nav-link d-flex justify-content-between">
+                  <span>
+                    <span class="sidebar-icon">
+                      <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <span class="sidebar-text">Menú</span>
+                  </span>
+                  <span>
+                    <span class="badge badge-sm bg-secondary ms-1 text-gray-800">Admin</span>
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                  data-bs-target="#submenu-app">
+                  <span>
+                    <span class="sidebar-icon">
+                      <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <span class="sidebar-text">Menú</span>
+                  </span>
+                  <span class="link-arrow">
+                    <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                </span>
+                <div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
+                  <ul class="flex-column nav">
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                  data-bs-target="#submenu-pages">
+                  <span>
+                    <span class="sidebar-icon">
+                      <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
+                          clip-rule="evenodd"></path>
+                        <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
+                      </svg>
+                    </span>
+                    <span class="sidebar-text">Menú</span>
+                  </span>
+                  <span class="link-arrow">
+                    <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                </span>
+                <div class="multi-level collapse " role="list" id="submenu-pages" aria-expanded="false">
+                  <ul class="flex-column nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                  data-bs-target="#submenu-components">
+                  <span>
+                    <span class="sidebar-icon">
+                      <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
+                        <path fill-rule="evenodd"
+                          d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <span class="sidebar-text">Menú</span>
+                  </span>
+                  <span class="link-arrow">
+                    <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                </span>
+                <div class="multi-level collapse " role="list" id="submenu-components" aria-expanded="false">
+                  <ul class="flex-column nav">
+                    <li class="nav-item">
+                      <a class="nav-link" target="_blank"
+                        href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">
+                        <span class="sidebar-text">Sub Menú</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
+              <li class="nav-item">
+                <a href="#" target="_blank"
+                  class="nav-link d-flex align-items-center">
+                  <span class="sidebar-icon">
+                    <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                  <span class="sidebar-text">Documentación <span
+                      class="badge badge-sm bg-secondary ms-1 text-gray-800">v1.0</span></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <router-link to="/" @click="logout" class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">                
+                  <span class="sidebar-icon d-inline-flex align-items-center justify-content-center">
+                    <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
+                  Salir de sesión
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
         <!-- Inicia Código -->
 
@@ -128,7 +558,14 @@ app.component("web-dashBoard", {
     };
   },
   computed: { },
-  methods: { },
+  methods: { 
+    logout() {
+      // Eliminar el estado de autenticación
+      localStorage.removeItem("isAuthenticated");
+      // Redirigir a la página de login
+      this.$router.push('/');
+    },
+  },
   created() { },
   mounted() { },
   

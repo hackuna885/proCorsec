@@ -15,20 +15,6 @@ const router = VueRouter.createRouter({
     routes,
 })
 
-// Función global para reinicializar Material Dashboard
-window.reinitializeMaterialDashboard = function() {
-  // Código de inicialización aquí
-};
-
-// Ejecutar después de cada cambio de ruta
-router.afterEach((to, from) => {
-  setTimeout(() => {
-    if (typeof window.reinitializeMaterialDashboard === 'function') {
-      window.reinitializeMaterialDashboard();
-    }
-  }, 200);
-});
-
 // Inicia Autenticación
 router.beforeEach((to, from, next) => {
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
