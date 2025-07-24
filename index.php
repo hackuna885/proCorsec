@@ -42,7 +42,7 @@
 <link type="text/css" href="vendor/notyf/notyf.min.css" rel="stylesheet">
 
 <!-- Volt CSS -->
-<link type="text/css" href="css/volt.css" rel="stylesheet">
+<link type="text/css" href="css/volt.css?v=1.0.1" rel="stylesheet">
 <link rel="stylesheet" href="css/hover.css">
 <link rel="stylesheet" href="css/style.css?v=1.0.1">
 <!-- vue js -->
@@ -105,7 +105,7 @@
 
 <!-- backend -->
 <script src="assets/js/axios.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=1.0.1"></script>
 <script src="components/Inicio.js?v=1.0.1"></script>
 <script>
     app.use(router)
