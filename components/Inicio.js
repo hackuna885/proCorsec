@@ -114,3 +114,24 @@ app.component("web-home", {
   
 });
 
+app.component("web-dashBoard", {
+  template: /*html*/ `
+        <!-- Inicia Código -->
+
+        <!-- Inicia Código -->
+
+
+`,
+  data() {
+    return {
+      datos: "",
+    };
+  },
+  computed: { },
+  methods: { },
+  created() { },
+  mounted() { },
+  
+});
+
+
